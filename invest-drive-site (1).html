@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invest Drive — Assessoria Financeira Automotiva</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #0a1628;
+  --navy2:  #0d1f3c;
+  --blue:   #2A6FD4;
+  --blue2:  #4a9eff;
+  --white:  #ffffff;
+  --off:    #f4f7fc;
+  --gray:   #8a9bb5;
+  --dark:   #060f1e;
+  --accent: #2A6FD4;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--white);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:999;
+  display: flex; align-items:center; justify-content:space-between;
+  padding: 18px 6%;
+  background: rgba(10,22,40,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(42,111,212,0.2);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px; font-weight: 900;
+  color: var(--white); letter-spacing: 1px;
+}
+.nav-logo span { color: var(--blue2); }
+.nav-links { display:flex; gap:36px; list-style:none; }
+.nav-links a {
+  color: rgba(255,255,255,0.65);
+  text-decoration:none; font-size:15px; font-weight:500;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--blue2); }
+.nav-cta {
+  background: var(--blue);
+  color: white !important;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: background .2s !important;
+}
+.nav-cta:hover { background: var(--blue2) !important; color: white !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex; align-items:center;
+  position: relative; overflow:hidden;
+  padding: 120px 6% 80px;
+}
+.hero-bg {
+  position:absolute; inset:0; pointer-events:none;
+}
+.hero-bg-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(42,111,212,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(42,111,212,0.07) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-bg-glow {
+  position:absolute; top:-200px; right:-200px;
+  width: 700px; height:700px; border-radius:50%;
+  background: radial-gradient(circle, rgba(42,111,212,0.18) 0%, transparent 65%);
+}
+.hero-bg-glow2 {
+  position:absolute; bottom:-150px; left:-100px;
+  width: 500px; height:500px; border-radius:50%;
+  background: radial-gradient(circle, rgba(42,111,212,0.10) 0%, transparent 65%);
+}
+.hero-line { position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+
+.hero-content { position:relative; z-index:2; max-width: 680px; }
+.hero-tag {
+  display: inline-block;
+  font-size: 12px; font-weight:600; letter-spacing:3px; text-transform:uppercase;
+  color: var(--blue2);
+  border: 1px solid rgba(74,158,255,0.3);
+  border-radius: 20px; padding: 6px 18px;
+  margin-bottom: 28px;
+  animation: fadeUp .6s ease both;
+}
+.hero h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 900; line-height: 1.0;
+  color: var(--white); text-transform: uppercase;
+  animation: fadeUp .7s ease .1s both;
+}
+.hero h1 .hl { color: var(--blue2); display:block; }
+.hero-sub {
+  font-size: 18px; font-weight:300; line-height:1.7;
+  color: rgba(255,255,255,0.60);
+  margin: 24px 0 40px;
+  animation: fadeUp .7s ease .2s both;
+}
+.hero-sub strong { color: rgba(255,255,255,0.9); font-weight:500; }
+
+.btn-primary {
+  display: inline-flex; align-items:center; gap:10px;
+  background: var(--blue);
+  color: white; text-decoration:none;
+  font-size: 16px; font-weight:700; letter-spacing:.5px;
+  padding: 18px 40px; border-radius:8px;
+  transition: all .25s; cursor:pointer; border:none;
+  animation: fadeUp .7s ease .3s both;
+}
+.btn-primary:hover { background: var(--blue2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(42,111,212,0.4); }
+.btn-primary .arr { font-size:20px; transition: transform .2s; }
+.btn-primary:hover .arr { transform: translateX(4px); }
+
+.btn-secondary {
+  display:inline-flex; align-items:center; gap:8px;
+  color: rgba(255,255,255,0.6);
+  text-decoration:none; font-size:15px; font-weight:500;
+  margin-left: 24px;
+  transition: color .2s;
+}
+.btn-secondary:hover { color: var(--blue2); }
+
+.hero-stats {
+  display:flex; gap:40px; margin-top:56px;
+  animation: fadeUp .7s ease .4s both;
+}
+.stat { border-left: 3px solid var(--blue); padding-left:16px; }
+.stat-num {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:36px; font-weight:900; color:var(--white);
+}
+.stat-num span { color: var(--blue2); }
+.stat-label { font-size:13px; color: rgba(255,255,255,0.45); margin-top:2px; }
+
+.hero-visual {
+  position:absolute; right:0; top:50%; transform:translateY(-50%);
+  width: 45%; pointer-events:none;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-card-stack { position:relative; width:360px; height:380px; }
+.hero-card {
+  position:absolute; border-radius:16px; padding:28px;
+  backdrop-filter: blur(10px);
+}
+.hc1 {
+  width:280px; top:0; left:40px;
+  background: rgba(42,111,212,0.15);
+  border: 1px solid rgba(42,111,212,0.3);
+}
+.hc2 {
+  width:260px; top:120px; left:100px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.hc3 {
+  width:200px; top:240px; left:20px;
+  background: rgba(42,111,212,0.2);
+  border: 1px solid rgba(42,111,212,0.4);
+}
+.hc-label { font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--blue2); margin-bottom:8px; }
+.hc-val { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--white); }
+.hc-sub { font-size:12px; color:rgba(255,255,255,0.4); margin-top:4px; }
+.check-green { color:#25D366; font-size:18px; }
+
+/* ── DOR ── */
+.dor {
+  background: var(--navy2);
+  padding: 80px 6%;
+  border-top: 1px solid rgba(42,111,212,0.15);
+  border-bottom: 1px solid rgba(42,111,212,0.15);
+}
+.dor-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+}
+.dor-label {
+  font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  color:var(--blue2); margin-bottom:16px;
+}
+.dor h2 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(36px,4vw,52px); font-weight:800; line-height:1.15;
+  color:var(--white); text-transform:uppercase;
+}
+.dor h2 em { color:var(--blue2); font-style:normal; }
+.dor-items { display:flex; flex-direction:column; gap:16px; }
+.dor-item {
+  display:flex; align-items:center; gap:16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius:10px; padding:18px 20px;
+  transition: border-color .2s, background .2s;
+}
+.dor-item:hover { border-color:rgba(42,111,212,0.4); background:rgba(42,111,212,0.08); }
+.dor-dot { width:10px; height:10px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+.dor-item p { font-size:16px; color:rgba(255,255,255,0.75); font-weight:400; }
+
+/* ── SECTION BASE ── */
+section { padding: 100px 6%; }
+.section-label {
+  font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  color:var(--blue); margin-bottom:14px;
+}
+.section-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(38px,4.5vw,58px); font-weight:900; line-height:1.1;
+  text-transform:uppercase; color:var(--navy);
+}
+.section-title .hl { color:var(--blue); }
+.section-title.light { color:var(--white); }
+.section-sub {
+  font-size:17px; font-weight:300; line-height:1.75;
+  color:var(--gray); margin-top:14px; max-width:560px;
+}
+.section-sub.light { color:rgba(255,255,255,0.55); }
+
+.container { max-width:1100px; margin:0 auto; }
+
+/* ── SERVIÇOS ── */
+.servicos { background: var(--off); }
+.servicos-header { text-align:center; margin-bottom:60px; }
+.servicos-header .section-sub { margin:14px auto 0; text-align:center; }
+.servicos-grid {
+  display:grid; grid-template-columns:repeat(2,1fr); gap:24px;
+}
+.srv-card {
+  background:var(--white);
+  border:1.5px solid rgba(10,22,40,0.08);
+  border-radius:16px; padding:36px;
+  transition: all .25s; cursor:default;
+  position:relative; overflow:hidden;
+}
+.srv-card::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background: var(--blue); transform:scaleY(0); transition:transform .3s;
+  transform-origin: bottom;
+}
+.srv-card:hover { border-color:var(--blue); transform:translateY(-4px); box-shadow:0 20px 40px rgba(42,111,212,0.12); }
+.srv-card:hover::before { transform:scaleY(1); }
+.srv-num {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:56px; font-weight:900; color:rgba(42,111,212,0.12);
+  line-height:1; margin-bottom:8px;
+}
+.srv-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:26px; font-weight:800; text-transform:uppercase;
+  color:var(--navy); margin-bottom:12px;
+}
+.srv-desc { font-size:15px; color:var(--gray); line-height:1.7; }
+.srv-tag {
+  display:inline-block; margin-top:20px;
+  font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--blue);
+  border:1px solid rgba(42,111,212,0.3); border-radius:4px; padding:4px 12px;
+}
+
+/* ── COMO FUNCIONA ── */
+.como { background: var(--navy); }
+.como-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.como-steps { display:flex; flex-direction:column; gap:0; }
+.step {
+  display:flex; gap:24px; position:relative;
+  padding-bottom:40px;
+}
+.step:last-child { padding-bottom:0; }
+.step-left { display:flex; flex-direction:column; align-items:center; }
+.step-num {
+  width:52px; height:52px; border-radius:50%;
+  background:var(--blue); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:900; flex-shrink:0;
+}
+.step-line {
+  width:2px; flex:1; min-height:30px;
+  background:linear-gradient(to bottom, rgba(42,111,212,0.5), rgba(42,111,212,0.1));
+  margin-top:8px;
+}
+.step:last-child .step-line { display:none; }
+.step-content { padding-top:12px; }
+.step-title {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:800; text-transform:uppercase;
+  color:var(--white); margin-bottom:6px;
+}
+.step-desc { font-size:15px; color:rgba(255,255,255,0.5); line-height:1.65; }
+
+.como-cta-box {
+  background: rgba(42,111,212,0.1);
+  border: 1px solid rgba(42,111,212,0.25);
+  border-radius:20px; padding:48px;
+  text-align:center;
+}
+.como-cta-box h3 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:38px; font-weight:900; text-transform:uppercase;
+  color:var(--white); line-height:1.15; margin-bottom:16px;
+}
+.como-cta-box h3 span { color:var(--blue2); }
+.como-cta-box p { font-size:15px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:32px; }
+
+/* ── DIFERENCIAIS ── */
+.difs { background:var(--white); }
+.difs-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:30px; margin-top:56px;
+}
+.dif-card {
+  border:1px solid rgba(10,22,40,0.08);
+  border-radius:14px; padding:32px;
+  transition: all .25s;
+}
+.dif-card:hover { border-color:var(--blue); box-shadow:0 8px 24px rgba(42,111,212,0.1); }
+.dif-icon {
+  width:48px; height:48px; border-radius:12px;
+  background:rgba(42,111,212,0.1);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:18px;
+}
+.dif-icon svg { width:22px; height:22px; }
+.dif-title { font-family:'Barlow Condensed',sans-serif; font-size:20px; font-weight:800; text-transform:uppercase; color:var(--navy); margin-bottom:8px; }
+.dif-desc { font-size:14px; color:var(--gray); line-height:1.65; }
+
+/* ── DEPOIMENTOS ── */
+.depoi { background: var(--off); }
+.depoi-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px;
+}
+.dep-card {
+  background:var(--white);
+  border:1px solid rgba(10,22,40,0.08);
+  border-radius:14px; padding:32px;
+  position:relative;
+}
+.dep-stars { color:#F5A623; font-size:16px; margin-bottom:16px; }
+.dep-text { font-size:15px; color:#3a4a5c; line-height:1.75; font-style:italic; margin-bottom:20px; }
+.dep-author { display:flex; align-items:center; gap:12px; }
+.dep-avatar {
+  width:44px; height:44px; border-radius:50%;
+  background:var(--blue); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:18px; font-weight:800;
+}
+.dep-name { font-size:14px; font-weight:600; color:var(--navy); }
+.dep-city { font-size:12px; color:var(--gray); }
+.dep-badge {
+  position:absolute; top:20px; right:20px;
+  background:rgba(42,111,212,0.1); color:var(--blue);
+  font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:4px 10px; border-radius:4px;
+}
+
+/* ── SOBRE ── */
+.sobre { background:var(--navy2); }
+.sobre-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.sobre-text .section-title { color:var(--white); }
+.sobre-text .section-sub { color:rgba(255,255,255,0.55); }
+.sobre-text p {
+  font-size:16px; color:rgba(255,255,255,0.55); line-height:1.8;
+  margin-top:20px;
+}
+.mvv { display:flex; flex-direction:column; gap:20px; margin-top:36px; }
+.mvv-item {
+  border-left:3px solid var(--blue);
+  padding-left:20px;
+}
+.mvv-label { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--blue2); margin-bottom:4px; }
+.mvv-val { font-size:15px; color:rgba(255,255,255,0.65); line-height:1.6; }
+.sobre-values {
+  background:rgba(42,111,212,0.08);
+  border:1px solid rgba(42,111,212,0.2);
+  border-radius:20px; padding:40px;
+}
+.sobre-values h4 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:22px; font-weight:800; text-transform:uppercase;
+  color:var(--white); margin-bottom:24px;
+}
+.val-item { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+.val-dot { width:8px; height:8px; border-radius:50%; background:var(--blue); flex-shrink:0; }
+.val-text { font-size:15px; color:rgba(255,255,255,0.65); }
+.frase-box {
+  background:var(--blue);
+  border-radius:12px; padding:28px; margin-top:24px; text-align:center;
+}
+.frase-box p {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:24px; font-weight:800; text-transform:uppercase;
+  color:var(--white); line-height:1.3; font-style:normal; color:white !important; margin:0;
+}
+
+/* ── FAQ ── */
+.faq { background:var(--white); }
+.faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:56px; }
+.faq-item {
+  border:1px solid rgba(10,22,40,0.10);
+  border-radius:12px; padding:28px; cursor:pointer;
+  transition: all .2s;
+}
+.faq-item:hover { border-color:var(--blue); background:rgba(42,111,212,0.03); }
+.faq-q {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:19px; font-weight:700; color:var(--navy); margin-bottom:10px;
+}
+.faq-a { font-size:14px; color:var(--gray); line-height:1.7; }
+
+/* ── CTA FINAL ── */
+.cta-final {
+  background: var(--navy);
+  text-align:center; padding:120px 6%;
+  position:relative; overflow:hidden;
+}
+.cta-final-bg {
+  position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(42,111,212,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 50%, rgba(42,111,212,0.10) 0%, transparent 50%);
+}
+.cta-final-inner { position:relative; z-index:2; max-width:700px; margin:0 auto; }
+.cta-tag {
+  display:inline-block; margin-bottom:24px;
+  font-size:12px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  color:var(--blue2); border:1px solid rgba(74,158,255,0.3);
+  border-radius:20px; padding:6px 18px;
+}
+.cta-final h2 {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(48px,6vw,72px); font-weight:900; text-transform:uppercase;
+  color:var(--white); line-height:1.05; margin-bottom:20px;
+}
+.cta-final h2 span { color:var(--blue2); }
+.cta-final p {
+  font-size:18px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:44px;
+}
+.cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn-wa {
+  display:inline-flex; align-items:center; gap:10px;
+  background:#25D366; color:white;
+  text-decoration:none; font-size:16px; font-weight:700;
+  padding:18px 40px; border-radius:8px;
+  transition: all .25s;
+}
+.btn-wa:hover { background:#1ebe5a; transform:translateY(-2px); box-shadow:0 12px 30px rgba(37,211,102,0.3); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:10px;
+  background:transparent; color:white;
+  text-decoration:none; font-size:16px; font-weight:600;
+  padding:18px 36px; border-radius:8px;
+  border:1.5px solid rgba(255,255,255,0.25);
+  transition:all .25s;
+}
+.btn-outline:hover { border-color:var(--blue2); color:var(--blue2); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--dark);
+  padding:60px 6% 32px;
+  border-top:1px solid rgba(42,111,212,0.2);
+}
+.footer-inner {
+  max-width:1100px; margin:0 auto;
+  display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px;
+  margin-bottom:48px;
+}
+.footer-brand {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:28px; font-weight:900; color:white; margin-bottom:12px;
+}
+.footer-brand span { color:var(--blue2); }
+.footer-tagline { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.6; max-width:280px; }
+.footer-col h5 {
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--blue2); margin-bottom:20px;
+}
+.footer-col a {
+  display:block; color:rgba(255,255,255,0.45); text-decoration:none;
+  font-size:14px; margin-bottom:10px; transition:color .2s;
+}
+.footer-col a:hover { color:var(--blue2); }
+.footer-bottom {
+  max-width:1100px; margin:0 auto;
+  display:flex; justify-content:space-between; align-items:center;
+  border-top:1px solid rgba(255,255,255,0.07); padding-top:24px;
+}
+.footer-copy { font-size:13px; color:rgba(255,255,255,0.25); }
+.footer-social { display:flex; gap:16px; }
+.social-btn {
+  width:38px; height:38px; border-radius:8px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  display:flex; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.45); text-decoration:none; font-size:14px;
+  transition:all .2s;
+}
+.social-btn:hover { background:var(--blue); border-color:var(--blue); color:white; }
+
+/* ── FRASES FLUTUANTES ── */
+.frases {
+  background:var(--blue);
+  padding:0; overflow:hidden;
+}
+.frases-track {
+  display:flex; gap:60px;
+  padding:20px 0;
+  white-space:nowrap;
+  animation: scroll 20s linear infinite;
+}
+.frase-item {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:20px; font-weight:800; text-transform:uppercase;
+  color:rgba(255,255,255,0.85); letter-spacing:1px;
+  flex-shrink:0;
+}
+.frase-sep { color:rgba(255,255,255,0.3); }
+
+@keyframes scroll {
+  0% { transform:translateX(0); }
+  100% { transform:translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(24px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity:0; transform:translateY(30px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links { display:none; }
+  .hero-visual { display:none; }
+  .dor-inner, .como-inner, .sobre-inner { grid-template-columns:1fr; gap:40px; }
+  .servicos-grid, .difs-grid, .depoi-grid, .faq-grid { grid-template-columns:1fr; }
+  .footer-inner { grid-template-columns:1fr; gap:32px; }
+  .hero-stats { flex-wrap:wrap; gap:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">INVEST<span>DRIVE</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#como">Como Funciona</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contato" class="nav-cta">Falar com Especialista</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-glow2"></div>
+    <div class="hero-line"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Assessoria Financeira Automotiva</div>
+    <h1>
+      Conquiste seu carro
+      <span class="hl">com estratégia,</span>
+      não no impulso.
+    </h1>
+    <p class="hero-sub">
+      Assessoria especializada em <strong>aprovação de crédito</strong>,
+      <strong>financiamento inteligente</strong> e
+      <strong>regularização do nome</strong>.
+      Você não precisa de mais tentativas — precisa da estratégia certa.
+    </p>
+    <div>
+      <a href="https://wa.me/5561982359900" class="btn-primary">
+        Quero analisar meu perfil agora
+        <span class="arr">→</span>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Clientes atendidos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">95<span>%</span></div>
+        <div class="stat-label">Taxa de aprovação</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4<span>x</span></div>
+        <div class="stat-label">Mais chances com assessoria</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card hc1">
+        <div class="hc-label">Status do Crédito</div>
+        <div class="hc-val"><span class="check-green">✓</span> APROVADO</div>
+        <div class="hc-sub">Análise concluída com sucesso</div>
+      </div>
+      <div class="hero-card hc2">
+        <div class="hc-label">Economia gerada</div>
+        <div class="hc-val">R$ 8.400</div>
+        <div class="hc-sub">vs. financiamento sem assessoria</div>
+      </div>
+      <div class="hero-card hc3">
+        <div class="hc-label">Nome regularizado</div>
+        <div class="hc-val"><span class="check-green">✓</span> Limpo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA DE FRASES -->
+<div class="frases">
+  <div class="frases-track">
+    <span class="frase-item">Crédito não é sorte. É estratégia.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Seu nome limpo. Seu crédito forte.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Não vendemos carro. Construímos conquistas.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Aprovação com consciência.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Crédito não é sorte. É estratégia.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Seu nome limpo. Seu crédito forte.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Não vendemos carro. Construímos conquistas.</span>
+    <span class="frase-sep">✦</span>
+    <span class="frase-item">Aprovação com consciência.</span>
+    <span class="frase-sep">✦</span>
+  </div>
+</div>
+
+<!-- DOR -->
+<div class="dor">
+  <div class="dor-inner">
+    <div class="reveal">
+      <div class="dor-label">Você se identifica?</div>
+      <h2>Você já passou<br>por <em>alguma</em><br>dessas situações?</h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.45);margin-top:20px;line-height:1.7;">
+        Se sim, você não está sozinho — e tem solução.<br>
+        A Invest Drive foi criada exatamente para isso.
+      </p>
+      <a href="https://wa.me/5561982359900" class="btn-primary" style="margin-top:32px;display:inline-flex;">
+        Quero resolver isso agora →
+      </a>
+    </div>
+    <div class="dor-items reveal">
+      <div class="dor-item"><div class="dor-dot"></div><p>Tentei financiar e fui recusado</p></div>
+      <div class="dor-item"><div class="dor-dot"></div><p>Estou com o nome negativado</p></div>
+      <div class="dor-item"><div class="dor-dot"></div><p>Tenho medo de fazer um financiamento ruim</p></div>
+      <div class="dor-item"><div class="dor-dot"></div><p>Não entendo as taxas e condições</p></div>
+      <div class="dor-item"><div class="dor-dot"></div><p>Já tentei várias vezes e não consegui aprovação</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="container">
+    <div class="servicos-header reveal">
+      <div class="section-label">O que fazemos</div>
+      <div class="section-title">Nossos <span class="hl">Serviços</span></div>
+      <p class="section-sub">Na Invest Drive, você não compra no escuro. Analisamos, orientamos e estruturamos cada passo da sua conquista.</p>
+    </div>
+    <div class="servicos-grid">
+      <div class="srv-card reveal">
+        <div class="srv-num">01</div>
+        <div class="srv-title">Aprovação de Crédito</div>
+        <p class="srv-desc">Analisamos seu perfil financeiro completo e criamos a melhor estratégia para maximizar suas chances de aprovação. Sabemos exatamente quais instituições e condições se encaixam no seu momento.</p>
+        <span class="srv-tag">Alta conversão</span>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-num">02</div>
+        <div class="srv-title">Consultoria de Financiamento</div>
+        <p class="srv-desc">Te ajudamos a entender taxas, prazos e condições para você não cair em armadilhas financeiras. Comparamos as melhores opções do mercado para garantir o melhor negócio.</p>
+        <span class="srv-tag">Economia garantida</span>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-num">03</div>
+        <div class="srv-title">Limpa Nome</div>
+        <p class="srv-desc">Regularizamos sua situação junto aos credores com negociação profissional. Seu nome limpo não é o destino — é o ponto de partida para uma nova história financeira.</p>
+        <span class="srv-tag">Reabilitação de crédito</span>
+      </div>
+      <div class="srv-card reveal">
+        <div class="srv-num">04</div>
+        <div class="srv-title">Planejamento Financeiro Automotivo</div>
+        <p class="srv-desc">Organizamos sua vida financeira para que a compra do veículo seja sustentável no longo prazo. Porque a conquista precisa ser mantida, não apenas alcançada.</p>
+        <span class="srv-tag">Estratégia completa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como">
+  <div class="container">
+    <div class="como-inner">
+      <div>
+        <div class="section-label" style="color:var(--blue2)">Processo</div>
+        <div class="section-title light">Como <span class="hl">funciona</span></div>
+        <p class="section-sub light" style="margin-bottom:48px;">4 etapas simples que transformam sua situação financeira em conquista real.</p>
+        <div class="como-steps">
+          <div class="step reveal">
+            <div class="step-left">
+              <div class="step-num">01</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Análise do Perfil</div>
+              <p class="step-desc">Entendemos sua situação atual — histórico, renda, pendências e objetivos.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-left">
+              <div class="step-num">02</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Estratégia Personalizada</div>
+              <p class="step-desc">Criamos o melhor caminho para você — sem atalhos, com resultado real.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-left">
+              <div class="step-num">03</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Execução</div>
+              <p class="step-desc">Aplicamos as soluções: limpeza de nome, aprovação de crédito, financiamento.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-left">
+              <div class="step-num">04</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-content">
+              <div class="step-title">Conquista</div>
+              <p class="step-desc">Você aprova com segurança, consciência e as chaves na mão.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="como-cta-box reveal">
+        <p style="font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue2);margin-bottom:20px;">Pronto para começar?</p>
+        <h3>Sua análise<br><span>começa agora.</span></h3>
+        <p>Em menos de 24h você já tem um diagnóstico completo do seu perfil e um plano de ação personalizado.</p>
+        <a href="https://wa.me/5561982359900" class="btn-primary" style="width:100%;justify-content:center;font-size:15px;">
+          Quero meu plano financeiro →
+        </a>
+        <p style="font-size:13px;color:rgba(255,255,255,0.3);margin-top:16px;margin-bottom:0;">Atendimento via WhatsApp · Rápido e sem burocracia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="difs">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Por que nós</div>
+      <div class="section-title" style="text-align:center">Nossos <span class="hl">diferenciais</span></div>
+    </div>
+    <div class="difs-grid">
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><circle cx="12" cy="12" r="2"/>
+          </svg>
+        </div>
+        <div class="dif-title">Atendimento Personalizado</div>
+        <p class="dif-desc">Cada cliente é único. Nossa estratégia é construída especificamente para o seu perfil e momento de vida.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div class="dif-title">Transparência Total</div>
+        <p class="dif-desc">Sem letras miúdas, sem surpresas. Você sabe exatamente o que está fazendo e por quê.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <div class="dif-title">Foco no Melhor Negócio</div>
+        <p class="dif-desc">Não ganhamos empurrando qualquer financiamento. Ganhamos quando você faz um bom negócio.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <div class="dif-title">Acompanhamento Completo</div>
+        <p class="dif-desc">Do primeiro diagnóstico até as chaves na mão. Estamos com você em cada etapa.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="dif-title">Segurança e Credibilidade</div>
+        <p class="dif-desc">Empresa registrada, profissionais especializados e histórico de resultados reais.</p>
+      </div>
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2A6FD4" stroke-width="2" stroke-linecap="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <div class="dif-title">Estratégia Baseada no Perfil</div>
+        <p class="dif-desc">Usamos dados e experiência para construir o caminho com maior chance de aprovação para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoi" id="depoimentos">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Resultados reais</div>
+      <div class="section-title" style="text-align:center">O que nossos <span class="hl">clientes</span> dizem</div>
+    </div>
+    <div class="depoi-grid">
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Eu achei que nunca ia conseguir financiar com meu nome sujo. A Invest Drive organizou tudo, negociou minhas dívidas e em 3 meses eu estava com meu carro aprovado. Inacreditável!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">MR</div>
+          <div>
+            <div class="dep-name">Marcos Rodrigues</div>
+            <div class="dep-city">Brasília, DF</div>
+          </div>
+        </div>
+        <div class="dep-badge">Nome regularizado</div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Tentei sozinha por 6 meses e nada. Com a Invest Drive, em menos de 30 dias estava aprovada. O atendimento é diferente — eles realmente explicam tudo e cuidam de você."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">CA</div>
+          <div>
+            <div class="dep-name">Carla Almeida</div>
+            <div class="dep-city">Goiânia, GO</div>
+          </div>
+        </div>
+        <div class="dep-badge">Aprovação rápida</div>
+      </div>
+      <div class="dep-card reveal">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Não entendia nada de taxa e financiamento. Eles me mostraram que o financiamento que eu ia assinar custaria R$ 12mil a mais. Economizei muito com a consultoria deles."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">JS</div>
+          <div>
+            <div class="dep-name">João Silva</div>
+            <div class="dep-city">Palmas, TO</div>
+          </div>
+        </div>
+        <div class="dep-badge">Economia real</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="container">
+    <div class="sobre-inner">
+      <div class="sobre-text reveal">
+        <div class="section-label" style="color:var(--blue2)">Nossa história</div>
+        <div class="section-title" style="color:var(--white)">Mais do que crédito aprovado.<br><span class="hl">Decisões inteligentes.</span></div>
+        <p>A Invest Drive nasceu para mudar a forma como as pessoas conquistam seus carros. Aqui, não empurramos financiamento. Nós analisamos, orientamos e estruturamos.</p>
+        <p>Acreditamos que antes de qualquer aprovação, vem a clareza. Antes de qualquer compra, vem a estratégia. Nosso papel é simples: te ajudar a fazer um bom negócio — de verdade.</p>
+        <div class="mvv">
+          <div class="mvv-item">
+            <div class="mvv-label">Missão</div>
+            <div class="mvv-val">Transformar a relação das pessoas com o crédito, gerando conquistas conscientes e duradouras.</div>
+          </div>
+          <div class="mvv-item">
+            <div class="mvv-label">Visão</div>
+            <div class="mvv-val">Ser referência nacional em assessoria financeira automotiva com inteligência e transparência.</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="sobre-values">
+          <h4>Nossos Valores</h4>
+          <div class="val-item"><div class="val-dot"></div><div class="val-text">Transparência acima de tudo</div></div>
+          <div class="val-item"><div class="val-dot"></div><div class="val-text">Foco no melhor resultado para o cliente</div></div>
+          <div class="val-item"><div class="val-dot"></div><div class="val-text">Estratégia baseada em dados reais</div></div>
+          <div class="val-item"><div class="val-dot"></div><div class="val-text">Compromisso com a transformação financeira</div></div>
+          <div class="val-item"><div class="val-dot"></div><div class="val-text">Atendimento humano e personalizado</div></div>
+          <div class="frase-box">
+            <p>"Não vendemos carro.<br>Construímos conquistas."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <div class="section-label">Dúvidas frequentes</div>
+      <div class="section-title" style="text-align:center">Perguntas <span class="hl">frequentes</span></div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <div class="faq-q">Posso financiar com nome negativado?</div>
+        <p class="faq-a">Em muitos casos sim, especialmente após passarmos pelo processo de reabilitação de crédito. Nossa análise identifica as melhores opções para o seu momento atual.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Quanto tempo leva o processo?</div>
+        <p class="faq-a">Depende da complexidade do seu perfil. Análise inicial em até 24h. Para aprovação de crédito, em média 7 a 30 dias. Para limpa nome, pode variar de 30 a 90 dias.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">A Invest Drive vende carros?</div>
+        <p class="faq-a">Não. Somos uma assessoria financeira. Nosso papel é te preparar financeiramente e garantir que você faça o melhor negócio possível — seja em qual concessionária for.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Como funciona o limpa nome?</div>
+        <p class="faq-a">Identificamos suas pendências, negociamos com os credores de forma profissional e estruturamos um acordo que caiba no seu orçamento. Você não precisa negociar sozinho.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Qual a diferença entre vocês e uma financeira?</div>
+        <p class="faq-a">Financeiras querem vender crédito. A Invest Drive quer garantir o melhor crédito para você. Comparamos várias instituições e só recomendamos o que faz sentido para seu perfil.</p>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">O atendimento é presencial ou online?</div>
+        <p class="faq-a">Atendemos tanto presencialmente em Brasília/DF quanto de forma online para todo o Brasil. Todo o processo pode ser conduzido via WhatsApp com total segurança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contato">
+  <div class="cta-final-bg"></div>
+  <div class="cta-final-inner reveal">
+    <div class="cta-tag">Comece agora</div>
+    <h2>Pare de tentar<br><span>sozinho.</span></h2>
+    <p>Faça da forma certa. Um especialista pronto para analisar seu perfil e criar a estratégia ideal para você conquistar seu carro com consciência.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/5561982359900" class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="https://instagram.com/invest.drive" class="btn-outline">
+        @invest.drive no Instagram
+      </a>
+    </div>
+    <p style="font-size:13px;color:rgba(255,255,255,0.25);margin-top:28px;margin-bottom:0;">
+      (61) 9 8235-9900 · Atendimento rápido e sem burocracia
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">INVEST<span>DRIVE</span></div>
+      <p class="footer-tagline">Mais que carros, decisões inteligentes. Assessoria financeira especializada para você conquistar com estratégia.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Serviços</h5>
+      <a href="#servicos">Aprovação de Crédito</a>
+      <a href="#servicos">Consultoria de Financiamento</a>
+      <a href="#servicos">Limpa Nome</a>
+      <a href="#servicos">Planejamento Financeiro</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <a href="https://wa.me/5561982359900">(61) 9 8235-9900</a>
+      <a href="https://instagram.com/invest.drive">@invest.drive</a>
+      <a href="#faq">Perguntas Frequentes</a>
+      <a href="#sobre">Sobre a Empresa</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 Invest Drive · Todos os direitos reservados · Intermediação Financeira</p>
+    <div class="footer-social">
+      <a href="https://wa.me/5561982359900" class="social-btn">W</a>
+      <a href="https://instagram.com/invest.drive" class="social-btn">ig</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
